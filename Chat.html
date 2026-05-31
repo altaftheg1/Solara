@@ -3,32 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solara</title>
-    
-    <link rel="stylesheet" href="homepage.css">
+    <title>Solara - Chat</title>
+    <link rel="stylesheet" href="Chat.css">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="navdiv">
-        <div>
-            <a href="homepage.html" class="Solara">SOLARA</a>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <a href="Index.html" class="Solara">SOLARA</a>
+            <ul class="navbar-links">
+                <li><a href="Chat.html">CHAT</a></li>
+                <li><a href="Videos.html">VIDEOS</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="About-UP.html">ABOUT</a></li>
+            </ul>
+            <div class="navbar-buttons">
+                <a href="Index.html#culture-UP" class="anon_Button">UTTAR PRADESH CULTURE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- WHOLE CHAT LAYOUT -->
+    <div class="chat-layout">
+
+        <!-- ======= LEFT SIDEBAR ======= -->
+        <div class="sidebar">
+
+            <!-- Your username at the top -->
+            <div class="your-username">
+                <span id="sidebar-username">loading...</span>
+            </div>
+
+            <!-- GLOBAL CHAT button -->
+            <div class="sidebar-label">GLOBAL</div>
+            <div class="chat-item active" id="btn-global" onclick="openChat('global')">
+                🌍 Global Chat
+            </div>
+
+            <!-- GROUP CHATS section -->
+            <div class="sidebar-label">
+                GROUPS
+                <button class="new-group-btn" onclick="showCreateGroup()">+ New</button>
+            </div>
+
+            <!-- Group chat buttons will appear here -->
+            <div id="group-list"></div>
+
+            <!-- PRIVATE CHATS section -->
+            <div class="sidebar-label">
+                PRIVATE
+                <button class="new-group-btn" onclick="showPrivateStart()">+ New</button>
+            </div>
+
+            <!-- Private chat buttons will appear here -->
+            <div id="private-list"></div>
+
         </div>
 
-        <ul class="navbar-links">
-        <li><a href="Chat.html">CHAT</a></li>
-        <li><a href="Videos.html">VIDEOS</a></li>
-        <li><a href="stories.html">STORIES</a></li>
-        <li><a href="emergency.html">EMERGENCY SUPPORT</a></li>
-        <li><a href="About-UP.html">ABOUT</a></li>
-        </ul>
+        <!-- ======= MAIN CHAT AREA ======= -->
+        <div class="chat-main">
 
-        <div class="navbar-buttons">
-            <a href="Login.html" class="login_Button">WELCOME BACK!</a>
-            <a href="signUp.html" class="signUp_Button">SHARE YOUR STORY</a>
+            <!-- Chat header (shows the name of the current chat) -->
+            <div class="chat-header">
+                <span id="chat-name">🌍 Global Chat</span>
+            </div>
+
+            <!-- Messages appear here -->
+            <div class="messages-area" id="messages-area">
+                <!-- Messages are added by JavaScript -->
+            </div>
+
+            <!-- Type and send a message -->
+            <div class="message-input-row">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ======= CREATE GROUP POPUP ======= -->
+    <!-- This is hidden by default, shown when + New is clicked -->
+    <div class="popup-overlay" id="group-popup">
+        <div class="popup-box">
+            <h3>Create a Group Chat</h3>
+            <label>Group Name</label>
+            <input type="text" id="new-group-name" placeholder="e.g. UP Sisters">
+            <div class="popup-buttons">
+                <button onclick="createGroup()">Create</button>
+                <button onclick="hidePopup('group-popup')">Cancel</button>
+            </div>
         </div>
     </div>
-</nav>
+
+    <!-- ======= START PRIVATE CHAT POPUP ======= -->
+    <div class="popup-overlay" id="private-popup">
+        <div class="popup-box">
+            <h3>Start a Private Chat</h3>
+            <label>Their Username</label>
+            <input type="text" id="private-username" placeholder="e.g. kiran_rises">
+            <div class="popup-buttons">
+                <button onclick="startPrivateChat()">Start Chat</button>
+                <button onclick="hidePopup('private-popup')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======= JAVASCRIPT ======= -->
+    <script>
+
+        // ----------------------------------------
+        // STEP 1 — Get the username from localStorage
+        // localStorage is like a tiny save file in the browser
+        // We saved the username on the Login page
+        // ----------------------------------------
+
+        var myUsername = localStorage.getItem("solaraUsername");
+
+        // If no username is saved, give them a default one
+        if (myUsername === null) {
+            myUsername = "guest_user";
+        }
+
+        // Show the username in the sidebar
+        document.getElementById("sidebar-username").innerText = "👤 " + myUsername;
+
+
+        // ----------------------------------------
+        // STEP 2 — Track which chat is open
+        // ----------------------------------------
+
+        // "global" is open by default
+        var currentChat = "global";
+
+
+        // ----------------------------------------
+        // STEP 3 — Open a chat when clicked
+        // ----------------------------------------
+
+        function openChat(chatId) {
+
+            // Remember which chat is open
+            currentChat = chatId;
+
+            // Remove the "active" highlight from all sidebar items
+            var allItems = document.querySelectorAll(".chat-item");
+            for (var i = 0; i < allItems.length; i++) {
+                allItems[i].classList.remove("active");
+            }
+
+            // Add "active" highlight to the clicked one
+            var clickedBtn = document.getElementById("btn-" + chatId);
+            if (clickedBtn) {
+                clickedBtn.classList.add("active");
+            }
+
+            // Update the header name
+            document.getElementById("chat-name").innerText = getChatDisplayName(chatId);
+
+            // Load and show messages for this chat
+            loadMessages(chatId);
+        }
+
+
+        // ----------------------------------------
+        // STEP 4 — Get a nice display name for the chat header
+        // ----------------------------------------
+
+        function getChatDisplayName(chatId) {
+            if (chatId === "global") return "🌍 Global Chat";
+
+            // Private chats are stored as "private_username"
+            if (chatId.startsWith("private_")) {
+                var otherPerson = chatId.replace("private_", "");
+                return "🔒 " + otherPerson;
+            }
+
+            // Group chats are stored as "group_name"
+            if (chatId.startsWith("group_")) {
+                var groupName = chatId.replace("group_", "");
+                return "👥 " + groupName;
+            }
+
+            return chatId;
+        }
+
+
+        // ----------------------------------------
+        // STEP 5 — Load messages from localStorage and show them
+        // ----------------------------------------
+
+        function loadMessages(chatId) {
+
+            var messagesArea = document.getElementById("messages-area");
+
+            // Clear any old messages from the screen
+            messagesArea.innerHTML = "";
+
+            // Get saved messages from localStorage
+            // JSON.parse turns the saved text back into a list
+            var saved = localStorage.getItem("messages_" + chatId);
+            var messages = saved ? JSON.parse(saved) : [];
+
+            // Loop through the list and show each message
+            for (var i = 0; i < messages.length; i++) {
+                showMessageOnScreen(messages[i].username, messages[i].text, messages[i].isMe);
+            }
+
+            // Scroll to the bottom so newest messages are visible
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+
+        // ----------------------------------------
+        // STEP 6 — Show one message bubble on the screen
+        // ----------------------------------------
+
+        function showMessageOnScreen(username, text, isMe) {
+
+            var messagesArea = document.getElementById("messages-area");
+
+            // Create a new div for this message
+            var bubble = document.createElement("div");
+
+            // If it's my message, align it right. Otherwise align left.
+            if (isMe) {
+                bubble.className = "message-bubble me";
+            } else {
+                bubble.className = "message-bubble them";
+            }
+
+            // Put the username and text inside
+            bubble.innerHTML = "<span class='msg-username'>" + username + "</span>" + text;
+
+            // Add it to the messages area
+            messagesArea.appendChild(bubble);
+
+            // Scroll to the bottom
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+
+        // ----------------------------------------
+        // STEP 7 — Send a message
+        // ----------------------------------------
+
+        function sendMessage() {
+
+            var input = document.getElementById("message-input");
+            var text = input.value;
+
+            // Don't send if the box is empty
+            if (text === "") return;
+
+            // Build a message object
+            var newMessage = {
+                username: myUsername,
+                text: text,
+                isMe: true
+            };
+
+            // Load existing messages for this chat
+            var saved = localStorage.getItem("messages_" + currentChat);
+            var messages = saved ? JSON.parse(saved) : [];
+
+            // Add the new message to the list
+            messages.push(newMessage);
+
+            // Save the updated list back to localStorage
+            localStorage.setItem("messages_" + currentChat, JSON.stringify(messages));
+
+            // Show it on screen
+            showMessageOnScreen(myUsername, text, true);
+
+            // Clear the input box
+            input.value = "";
+        }
+
+        // Also send message when Enter key is pressed
+        document.getElementById("message-input").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+
+
+        // ----------------------------------------
+        // STEP 8 — Create a new group chat
+        // ----------------------------------------
+
+        function showCreateGroup() {
+            document.getElementById("group-popup").style.display = "flex";
+        }
+
+        function createGroup() {
+
+            var name = document.getElementById("new-group-name").value;
+
+            if (name === "") {
+                alert("Please enter a group name!");
+                return;
+            }
+
+            // Save this group to the list of groups
+            var saved = localStorage.getItem("solara_groups");
+            var groups = saved ? JSON.parse(saved) : [];
+            groups.push(name);
+            localStorage.setItem("solara_groups", JSON.stringify(groups));
+
+            // Add the button to the sidebar
+            addGroupToSidebar(name);
+
+            // Close the popup
+            hidePopup("group-popup");
+
+            // Clear the input
+            document.getElementById("new-group-name").value = "";
+
+            // Open the new group
+            openChat("group_" + name);
+        }
+
+        function addGroupToSidebar(name) {
+            var groupList = document.getElementById("group-list");
+
+            var item = document.createElement("div");
+            item.className = "chat-item";
+            item.id = "btn-group_" + name;
+            item.innerText = "👥 " + name;
+            item.onclick = function() { openChat("group_" + name); };
+
+            groupList.appendChild(item);
+        }
+
+
+        // ----------------------------------------
+        // STEP 9 — Start a private chat
+        // ----------------------------------------
+
+        function showPrivateStart() {
+            document.getElementById("private-popup").style.display = "flex";
+        }
+
+        function startPrivateChat() {
+
+            var otherUser = document.getElementById("private-username").value;
+
+            if (otherUser === "") {
+                alert("Please enter a username!");
+                return;
+            }
+
+            var chatId = "private_" + otherUser;
+
+            // Save to private list if not already there
+            var saved = localStorage.getItem("solara_privates");
+            var privates = saved ? JSON.parse(saved) : [];
+
+            if (privates.indexOf(otherUser) === -1) {
+                privates.push(otherUser);
+                localStorage.setItem("solara_privates", JSON.stringify(privates));
+                addPrivateToSidebar(otherUser);
+            }
+
+            // Close popup and open the chat
+            hidePopup("private-popup");
+            document.getElementById("private-username").value = "";
+            openChat(chatId);
+        }
+
+        function addPrivateToSidebar(otherUser) {
+            var privateList = document.getElementById("private-list");
+
+            var item = document.createElement("div");
+            item.className = "chat-item";
+            item.id = "btn-private_" + otherUser;
+            item.innerText = "🔒 " + otherUser;
+            item.onclick = function() { openChat("private_" + otherUser); };
+
+            privateList.appendChild(item);
+        }
+
+
+        // ----------------------------------------
+        // STEP 10 — Hide a popup
+        // ----------------------------------------
+
+        function hidePopup(popupId) {
+            document.getElementById(popupId).style.display = "none";
+        }
+
+
+        // ----------------------------------------
+        // STEP 11 — On page load, restore saved groups and privates
+        // ----------------------------------------
+
+        // Load saved groups into the sidebar
+        var savedGroups = localStorage.getItem("solara_groups");
+        var groupList = savedGroups ? JSON.parse(savedGroups) : [];
+        for (var i = 0; i < groupList.length; i++) {
+            addGroupToSidebar(groupList[i]);
+        }
+
+        // Load saved private chats into the sidebar
+        var savedPrivates = localStorage.getItem("solara_privates");
+        var privateList = savedPrivates ? JSON.parse(savedPrivates) : [];
+        for (var j = 0; j < privateList.length; j++) {
+            addPrivateToSidebar(privateList[j]);
+        }
+
+        // Load global chat messages on start
+        loadMessages("global");
+
+    </script>
 
 </body>
 </html>

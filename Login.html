@@ -3,32 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solara</title>
-    
-    <link rel="stylesheet" href="homepage.css">
+    <title>Solara - Join</title>
+    <link rel="stylesheet" href="Login.css">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="navdiv">
-        <div>
-            <a href="homepage.html" class="Solara">SOLARA</a>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navdiv">
+
+            <a href="Index.html" class="Solara">SOLARA</a>
+
+            <ul class="navbar-links">
+                <li><a href="Chat.html">CHAT</a></li>
+                <li><a href="Videos.html">VIDEOS</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="About-UP.html">ABOUT</a></li>
+            </ul>
+
+            <div class="navbar-buttons">
+                <a href="Index.html#culture-UP" class="anon_Button">UTTAR PRADESH CULTURE</a>
+            </div>
+
         </div>
+    </nav>
 
-        <ul class="navbar-links">
-        <li><a href="Chat.html">CHAT</a></li>
-        <li><a href="Videos.html">VIDEOS</a></li>
-        <li><a href="stories.html">STORIES</a></li>
-        <li><a href="emergency.html">EMERGENCY SUPPORT</a></li>
-        <li><a href="About-UP.html">ABOUT</a></li>
-        </ul>
+    <!-- MAIN CARD -->
+    <div class="page-center">
+        <div class="card">
 
-        <div class="navbar-buttons">
-            <a href="Login.html" class="login_Button">WELCOME BACK!</a>
-            <a href="signUp.html" class="signUp_Button">SHARE YOUR STORY</a>
+            <h2 class="card-title">Join SOLARA</h2>
+            <p class="card-subtitle">Click the button to get your username</p>
+
+            <!-- This box shows the username -->
+            <div class="username-box">
+                <span id="username-display">✨ click below!</span>
+            </div>
+
+            <!-- Random button -->
+            <button class="random-btn" onclick="pickUsername()">🔀 Random Username</button>
+
+            <!-- Enter button -->
+            <a href="Chat.html" class="enter-btn">ENTER SOLARA →</a>
+
+            <p class="bottom-msg">Together we rise. Together we shine.</p>
+
         </div>
     </div>
-</nav>
+
+    <!-- JAVASCRIPT (only for the random username) -->
+    <script>
+
+        // List of usernames to pick from
+        var usernames = [
+            "kiran_rises", "shakti_free", "surya123", "priya_up",
+            "jyoti2025", "asha_strong", "noor_shines", "ananya_free",
+            "devi_rises", "priya_strong", "kiran2025", "asha_up"
+        ];
+
+        // This runs when the button is clicked
+        function pickUsername() {
+
+            // Pick a random number between 0 and the list length
+            var randomNumber = Math.floor(Math.random() * usernames.length);
+
+            // Use that number to grab a username from the list
+            var picked = usernames[randomNumber];
+
+            // Show it in the box
+            document.getElementById("username-display").innerText = "✨ " + picked;
+        }
+
+    </script>
 
 </body>
 </html>
