@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solara - Chat</title>
+    <link rel="stylesheet" href="Chat.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <a href="Index.html" class="Solara">SOLARA</a>
+            <ul class="navbar-links">
+                <li><a href="Chat.html">CHAT</a></li>
+                <li><a href="Videos.html">VIDEOS</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="About-UP.html">ABOUT</a></li>
+            </ul>
+            <div class="navbar-buttons">
+                <a href="Index.html#culture-UP" class="anon_Button">UTTAR PRADESH CULTURE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CHAT PAGE -->
+    <div class="chat-page">
+
+        <!-- Title at the top -->
+        <div class="chat-title">
+            🌍 Global Chat
+            <span class="chat-subtitle">Talk to the SOLARA community</span>
+        </div>
+
+        <!-- All messages appear here -->
+        <div class="messages-area" id="messages-area"></div>
+
+        <!-- Type and send -->
+        <div class="input-row">
+            <input type="text" id="message-input" placeholder="Say something to the community...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+    </div>
+
+    <script>
+
+        // Read the username that was saved on the Login page
+        var myUsername = localStorage.getItem("solaraUsername");
+
+        // If somehow there is no username, send them back to login
+        if (myUsername === null) {
+            window.location.href = "Login.html";
+        }
+
+
+        // Show all saved messages when the page loads
+        function loadMessages() {
+
+            var area = document.getElementById("messages-area");
+            area.innerHTML = "";
+
+            var saved = localStorage.getItem("global_messages");
+            var messages = saved ? JSON.parse(saved) : [];
+
+            for (var i = 0; i < messages.length; i++) {
+                showBubble(messages[i].username, messages[i].text, messages[i].isMe);
+            }
+
+            area.scrollTop = area.scrollHeight;
+        }
+
+
+        // Put one message bubble on the screen
+        function showBubble(username, text, isMe) {
+
+            var area = document.getElementById("messages-area");
+
+            var bubble = document.createElement("div");
+            bubble.className = isMe ? "bubble me" : "bubble them";
+            bubble.innerHTML = "<span class='who'>" + username + "</span>" + text;
+
+            area.appendChild(bubble);
+            area.scrollTop = area.scrollHeight;
+        }
+
+
+        // Save and show a new message when Send is clicked
+        function sendMessage() {
+
+            var input = document.getElementById("message-input");
+            var text = input.value;
+
+            if (text === "") return;
+
+            var msg = {
+                username: myUsername,
+                text: text,
+                isMe: true
+            };
+
+            var saved = localStorage.getItem("global_messages");
+            var messages = saved ? JSON.parse(saved) : [];
+            messages.push(msg);
+            localStorage.setItem("global_messages", JSON.stringify(messages));
+
+            showBubble(myUsername, text, true);
+            input.value = "";
+        }
+
+        // Also send when Enter key is pressed
+        document.getElementById("message-input").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+
+
+        // Run on page load
+        loadMessages();
+
+    </script>
+
+</body>
+</html>

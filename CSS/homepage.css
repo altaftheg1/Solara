@@ -19,9 +19,7 @@ body {
 }
 
 
-/* ========================
-   NAVBAR
-======================== */
+/*NAVBAR*/
 
 .navbar {
     background: rgba(231, 180, 84, 0.2);
@@ -56,7 +54,7 @@ body {
     list-style: none;
     gap: 30px;
     position:absolute;
-    right: 500px;
+    right: 830px;
 }
 
 .navbar-links li a {
@@ -89,9 +87,7 @@ body {
 
 
 
-/* ========================
-   HERO SECTION
-======================== */
+/*HERO SECTION*/
 
 .heroImage {
     width: 100%;
@@ -149,9 +145,7 @@ body {
 }
 
 
-/* ========================
-   FEATURES SECTION
-======================== */
+/*FEATURES SECTION*/
 
 .features-wrapper {
     background-color: #f9f3b1;
@@ -204,9 +198,7 @@ body {
 }
 
 
-/* ========================
-   PURPOSE / AUDIENCE / SOLUTION SECTIONS
-======================== */
+/*PURPOSE/AUDIENCE/SOLUTION*/
 
 .purpose, .audience, .solution {
     padding: 60px 60px;
@@ -215,7 +207,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 60px;
-    overflow: hidden; /* stops anything spilling outside */
+    overflow: hidden; 
 }
 
 .purpose  { background-color: rgba(255, 107, 107, 0.15); }
@@ -265,9 +257,7 @@ body {
 }
 
 
-/* ========================
-   UTTAR PRADESH SECTION
-======================== */
+/*UTTAR PRADESH SECTION*/
 
 .up-section {
     background-color: #fff8f0;
@@ -359,9 +349,7 @@ body {
 }
 
 
-/* ========================
-   FOOTER
-======================== */
+/*FOOTER*/
 
 .footy {
     background-color: rgb(85, 84, 84);

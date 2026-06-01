@@ -1,0 +1,182 @@
+/* ========================
+   GENERAL PAGE
+======================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+
+/* ========================
+   NAVBAR
+======================== */
+
+.navbar {
+    background: rgba(231, 180, 84, 0.829);
+    padding: 10px 35px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 70px;
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+li a {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.Solara {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(152, 104, 0);
+    text-decoration: none;
+}
+
+.anon_Button {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/* ========================
+   PAGE CENTER
+======================== */
+
+.page-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+
+/* ========================
+   CARD
+======================== */
+
+.card {
+    background-color: white;
+    border: 1px solid #e0d0c0;
+    border-radius: 12px;
+    padding: 40px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+    font-size: 26px;
+    color: #c0392b;
+    margin-bottom: 6px;
+}
+
+.card-subtitle {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+
+/* ========================
+   USERNAME BOX
+======================== */
+
+.username-box {
+    background-color: #fff8f0;
+    border: 1px dashed #e8c0b0;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #c0392b;
+    margin-bottom: 16px;
+}
+
+
+/* ========================
+   RANDOM BUTTON
+======================== */
+
+.random-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #f9ece8;
+    border: 1px solid #e8c0b0;
+    border-radius: 8px;
+    color: #c0392b;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    font-family: Calibri, sans-serif;
+}
+
+.random-btn:hover {
+    background-color: #f0d0c0;
+}
+
+
+/* ========================
+   ENTER BUTTON
+======================== */
+
+.enter-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-family: Calibri, sans-serif;
+}
+
+.enter-btn:hover {
+    background-color: #a93226;
+}
+
+
+/* ========================
+   BOTTOM TEXT
+======================== */
+
+.bottom-msg {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solara - Join</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navdiv">
+
+            <a href="Index.html" class="Solara">SOLARA</a>
+
+            <ul class="navbar-links">
+                <li><a href="Chat.html">CHAT</a></li>
+                <li><a href="Videos.html">VIDEOS</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="About-UP.html">ABOUT</a></li>
+            </ul>
+
+            <div class="navbar-buttons">
+                <a href="Index.html#culture-UP" class="anon_Button">UTTAR PRADESH CULTURE</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- MAIN CARD -->
+    <div class="page-center">
+        <div class="card">
+
+            <h2 class="card-title">Join SOLARA</h2>
+            <p class="card-subtitle">Click the button to get your username</p>
+
+            <!-- This box shows the username -->
+            <div class="username-box">
+                <span id="username-display">✨ click below!</span>
+            </div>
+
+            <!-- Random button -->
+            <button class="random-btn" onclick="pickUsername()">🔀 Random Username</button>
+
+            <!-- Enter button — now a button not a link -->
+            <button class="enter-btn" onclick="enterSolara()">ENTER SOLARA →</button>
+
+            <p class="bottom-msg">Together we rise. Together we shine.</p>
+
+        </div>
+    </div>
+
+    <script>
+
+        // List of usernames to pick from
+        var usernames = [
+            "kiran_rises", "shakti_free", "surya123", "priya_up",
+            "jyoti2025", "asha_strong", "noor_shines", "ananya_free",
+            "devi_rises", "priya_strong", "kiran2025", "asha_up"
+        ];
+
+        // Runs when Random Username is clicked
+        function pickUsername() {
+            var randomNumber = Math.floor(Math.random() * usernames.length);
+            var picked = usernames[randomNumber];
+            document.getElementById("username-display").innerText = "✨ " + picked;
+        }
+
+        // Runs when Enter Solara is clicked
+        function enterSolara() {
+
+            // Read what is showing in the username box
+            var displayed = document.getElementById("username-display").innerText;
+
+            // If they haven't picked one yet, stop and warn them
+            if (displayed === "✨ click below!") {
+                alert("Please pick a username first!");
+                return;
+            }
+
+            // Remove the "✨ " from the front so the name is clean
+            var cleanUsername = displayed.replace("✨ ", "");
+
+            // Save the username to localStorage so Chat.html can use it
+            localStorage.setItem("solaraUsername", cleanUsername);
+
+            // Send them to the chat page
+            window.location.href = "Chat.html";
+        }
+
+    </script>
+
+</body>
+</html>

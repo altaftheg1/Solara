@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Calibri', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+
+
+
+
+.navbar {
+    background: rgba(231, 180, 84, 0.2);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.Solara {
+    font-size: 32px;
+    font-weight: 800;
+    color: rgb(110, 75, 0);
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    color: rgb(204, 167, 97);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.navbar-links li a:hover {
+    opacity: 0.8;
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+
+
+
+.anon_Button, 
+.logOut_Button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.anon_Button:hover, 
+.logOut_Button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+
+
+
+.page-header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: rgb(110, 75, 0);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.page-header p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+
+
+.page-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.fact-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: rgb(110, 75, 0);
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+
+
+
+.fact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.fact-card {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fact-card h3 {
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 20px;
+}
+
+.fact-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+
+.fact-image {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    align-self: center;s
+}
+
+
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.quick-fact {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.qf-number {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(247, 100, 55); /* Reusing your accent border color */
+    margin-bottom: 6px;
+}
+
+.qf-label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+
+
+.footy {
+    background-color: rgb(85, 84, 84);
+    width: 100%;
+    padding: 30px 40px;
+    margin-top: auto; /* Forces footer to stay at bottom */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.foot {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link:hover {
+    color: white;
+}
