@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================
+   NAVBAR
+======================== */
+
+.navbar {
+    background: rgba(231, 180, 84, 0.2);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.Solara {
+    font-size: 32px;
+    font-weight: 800;
+    color: rgb(110, 75, 0);
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    color: rgb(204, 167, 97);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-links li a:hover { opacity: 0.8; }
+
+.anon_Button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
+}
+
+
+/* ========================
+   PAGE HEADER
+======================== */
+
+.page-header {
+    background-color: #fff4e6;
+    padding: 60px 40px;
+    text-align: center;
+    border-bottom: 2px solid #e8d5b0;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: rgb(95, 80, 29);
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.page-sub {
+    font-size: 17px;
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+/* ========================
+   MAIN LAYOUT
+   (form on left, feed on right)
+======================== */
+
+.stories-layout {
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 30px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+
+/* ========================
+   POST A STORY FORM
+======================== */
+
+.post-form {
+    width: 320px;
+    flex-shrink: 0;
+    background-color: white;
+    border: 1px solid #e8d5b0;
+    border-radius: 16px;
+    padding: 28px;
+    position: sticky;
+    top: 100px; /* sticks while you scroll the feed */
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+    margin-top: 14px;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Calibri, sans-serif;
+    color: #333;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #c0392b;
+}
+
+.form-textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-file {
+    width: 100%;
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+}
+
+.form-submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: Calibri, sans-serif;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.form-submit:hover { background-color: #a93226; }
+
+
+/* ========================
+   STORIES FEED
+======================== */
+
+.stories-feed {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+
+/* ========================
+   STORY CARD
+======================== */
+
+.story-card {
+    background-color: white;
+    border: 1px solid #e8d5b0;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.story-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.story-username {
+    font-size: 15px;
+    font-weight: bold;
+    color: #c0392b;
+}
+
+.story-date {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.story-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+/* Story image — only shows if the image file exists */
+.story-img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* ========================
+   REPLIES SECTION
+======================== */
+
+.replies-section {
+    border-top: 1px solid #f0e0d0;
+    padding-top: 16px;
+}
+
+.replies-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.reply {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.reply-username {
+    font-weight: bold;
+    color: #c0392b;
+    white-space: nowrap;
+}
+
+.reply-text {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Reply input row */
+.reply-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.reply-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Calibri, sans-serif;
+}
+
+.reply-input:focus {
+    outline: none;
+    border-color: #c0392b;
+}
+
+.reply-btn {
+    padding: 8px 16px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: Calibri, sans-serif;
+}
+
+.reply-btn:hover { background-color: #a93226; }
+
+
+/* ========================
+   FOOTER
+======================== */
+
+.footy {
+    background-color: rgb(85, 84, 84);
+    width: 100%;
+    padding: 30px 40px;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.foot {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.footer-links { display: flex; gap: 20px; }
+
+.footer-link {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link:hover { color: white; }
+
+.logOut_Button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
+}

@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Calibri', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+
+/* ========================
+   NAVBAR
+======================== */
+
+.navbar {
+    background: rgba(231, 180, 84, 0.2);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.Solara {
+    font-size: 32px;
+    font-weight: 800;
+    color: rgb(110, 75, 0);
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    color: rgb(204, 167, 97);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-links li a:hover {
+    opacity: 0.8;
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.anon_Button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
+}
+
+/* ========================
+   PAGE CENTER
+   (pushes the card to the middle)
+======================== */
+
+.page-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+
+/* ========================
+   CARD
+======================== */
+
+.card {
+    background-color: white;
+    border: 1px solid #e0d0c0;
+    border-radius: 12px;
+    padding: 40px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+    font-size: 26px;
+    color: #c0392b;
+    margin-bottom: 6px;
+}
+
+
+/*USERNAME BOX*/
+
+.username-box {
+    background-color: #fff8f0;
+    border: 1px solid #e8c0b0;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #c0392b;
+    margin-bottom: 10px;
+}
+
+
+/*RANDOM BUTTON*/
+
+.random-btn {
+    padding: 10px 20px;
+    background-color: #f9ece8;
+    border: 1px solid #e8c0b0;
+    border-radius: 8px;
+    color: #c0392b;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    font-family: Calibri, sans-serif;
+}
+
+.random-btn:hover {
+    background-color: #f0d0c0;
+}
+
+
+/*ENTER BUTTON*/
+
+.enter-btn {
+    display: block;
+    padding: 12px;
+    background-color: #ff5151;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    align-items: center;
+    position: relative;
+    left: 50px;
+}
+
+.enter-btn:hover {
+    background-color: #aa261a;
+}
+
+.enter-link {
+    text-decoration: none;
+}
+
+/*BOTTOM TEXT*/
+
+.question {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 12px;
+    position:relative; 
+    right:50px;
+    top:10px;
+    font-weight: 600;
+}
+.bottom-msg {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+}
+
+.footy {
+    background-color: rgb(85, 84, 84);
+    width: 100%;
+    padding: 30px 40px;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.foot {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link:hover {
+    color: white;
+}

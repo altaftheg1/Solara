@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ========================
+   NAVBAR
+======================== */
+
+.navbar {
+    background: rgba(231, 180, 84, 0.2);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.Solara {
+    font-size: 32px;
+    font-weight: 800;
+    color: rgb(110, 75, 0);
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    color: rgb(204, 167, 97);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-links li a:hover { opacity: 0.8; }
+
+.anon_Button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
+}
+
+
+/* ========================
+   ABOUT HERO BANNER
+======================== */
+
+.about-hero {
+    background: linear-gradient(135deg, rgb(192, 57, 43), rgb(170, 98, 56));
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.about-hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.about-hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.85);
+}
+
+
+/* ========================
+   SECTION WRAPPERS
+======================== */
+
+.about-section {
+    width: 100%;
+    padding: 70px 40px;
+}
+
+/* Alternating background colours */
+.about-section.light { background-color: #fff8f0; }
+.about-section.warm  { background-color: #fef3e2; }
+.about-section.emergency { background-color: #fff0f0; }
+
+/* Inner container — max width and centered */
+.about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Two column layout used in the "Made by" section */
+.about-inner.two-col {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+
+/* ========================
+   SECTION TITLES AND TEXT
+======================== */
+
+.about-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: rgb(95, 80, 29);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Red title used for emergency section */
+.about-title.red { color: #c0392b; }
+
+.about-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 16px;
+    max-width: 750px;
+}
+
+
+/* ========================
+   HOW WE HELP CARDS
+======================== */
+
+.help-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.help-card {
+    background-color: white;
+    border: 1px solid #e8d5b0;
+    border-radius: 16px;
+    padding: 28px 24px;
+    width: 230px;
+    flex-grow: 1;
+}
+
+.help-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.help-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 10px;
+}
+
+.help-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+
+/* ========================
+   CREATOR BOX
+======================== */
+
+.creator-box {
+    background-color: white;
+    border: 1px solid #e8d5b0;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 2;
+    color: #555;
+}
+
+
+/* ========================
+   QUOTE BOX
+======================== */
+
+.quote-box {
+    background-color: #c0392b;
+    border-radius: 16px;
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 280px;
+    flex-shrink: 0;
+}
+
+.quote-text {
+    font-size: 20px;
+    font-style: italic;
+    color: white;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.quote-author {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    font-weight: bold;
+}
+
+
+/* ========================
+   EMERGENCY CARDS
+======================== */
+
+.emergency-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.emergency-card {
+    background-color: white;
+    border: 2px solid #f0c0b0;
+    border-radius: 16px;
+    padding: 24px;
+    flex: 1;
+    min-width: 220px;
+}
+
+.emergency-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 12px;
+}
+
+.emergency-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.emergency-note {
+    background-color: #fde8e8;
+    border-left: 4px solid #c0392b;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* ========================
+   VALUES ROW
+======================== */
+
+.values-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.value-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 24px 16px;
+    background-color: white;
+    border-radius: 16px;
+    border: 1px solid #e8d5b0;
+}
+
+.value-icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.value-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 8px;
+}
+
+.value-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* ========================
+   FOOTER
+======================== */
+
+.footy {
+    background-color: rgb(85, 84, 84);
+    width: 100%;
+    padding: 30px 40px;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.foot {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.footer-links { display: flex; gap: 20px; }
+
+.footer-link {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link:hover { color: white; }
+
+.logOut_Button {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
+}
