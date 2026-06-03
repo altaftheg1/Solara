@@ -19,8 +19,6 @@ body {
 }
 
 
-/*NAVBAR*/
-
 .navbar {
     background: rgba(231, 180, 84, 0.2);
     padding: 15px 40px;
@@ -54,7 +52,7 @@ body {
     list-style: none;
     gap: 30px;
     position:absolute;
-    right: 830px;
+    right: 600px;
 }
 
 .navbar-links li a {
@@ -85,9 +83,6 @@ body {
     border: 2px solid rgb(247, 100, 55);
 }
 
-
-
-/*HERO SECTION*/
 
 .heroImage {
     width: 100%;
@@ -145,8 +140,6 @@ body {
 }
 
 
-/*FEATURES SECTION*/
-
 .features-wrapper {
     background-color: #f9f3b1;
     width: 100%;
@@ -198,8 +191,6 @@ body {
 }
 
 
-/*PURPOSE/AUDIENCE/SOLUTION*/
-
 .purpose, .audience, .solution {
     padding: 60px 60px;
     display: flex;
@@ -221,7 +212,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Text side — limited width so it doesn't overflow */
 .purp-text, .aud-text, .sol-text {
     flex: 1;
     max-width: 500px;
@@ -233,7 +223,6 @@ body {
     line-height: 1.6;
 }
 
-/* Images — fixed size, slight tilt */
 .purp-img, .sol-img {
     width: 420px;
     flex-shrink: 0;
@@ -255,9 +244,6 @@ body {
 .purp-img:hover, .aud-img:hover, .sol-img:hover {
     transform: translateY(-5px);
 }
-
-
-/*UTTAR PRADESH SECTION*/
 
 .up-section {
     background-color: #fff8f0;
@@ -347,9 +333,6 @@ body {
     font-size: 13px;
     text-align: center;
 }
-
-
-/*FOOTER*/
 
 .footy {
     background-color: rgb(85, 84, 84);

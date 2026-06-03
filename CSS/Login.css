@@ -19,10 +19,6 @@ body {
 }
 
 
-/* ========================
-   NAVBAR
-======================== */
-
 .navbar {
     background: rgba(231, 180, 84, 0.2);
     padding: 15px 40px;
@@ -83,11 +79,6 @@ body {
     border: 2px solid rgb(247, 100, 55);
 }
 
-/* ========================
-   PAGE CENTER
-   (pushes the card to the middle)
-======================== */
-
 .page-center {
     flex: 1;
     display: flex;
@@ -95,11 +86,6 @@ body {
     justify-content: center;
     padding: 40px 20px;
 }
-
-
-/* ========================
-   CARD
-======================== */
 
 .card {
     background-color: white;
@@ -118,8 +104,6 @@ body {
 }
 
 
-/*USERNAME BOX*/
-
 .username-box {
     background-color: #fff8f0;
     border: 1px solid #e8c0b0;
@@ -131,8 +115,6 @@ body {
     margin-bottom: 10px;
 }
 
-
-/*RANDOM BUTTON*/
 
 .random-btn {
     padding: 10px 20px;
@@ -150,8 +132,6 @@ body {
     background-color: #f0d0c0;
 }
 
-
-/*ENTER BUTTON*/
 
 .enter-btn {
     display: block;
@@ -176,7 +156,6 @@ body {
     text-decoration: none;
 }
 
-/*BOTTOM TEXT*/
 
 .question {
     font-size: 18px;

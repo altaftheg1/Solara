@@ -102,20 +102,20 @@ body {
     line-height: 1.6;
 }
  
-/* WRAPPER — light background behind all sections */
+
 .videos-wrapper {
     background-color: #fff8f0;
     padding: 20px;
 }
  
-/* EACH SECTION — e.g. "Help & Support", "Learn & Educate" */
+
 .video-section {
     max-width: 1200px;
     margin: 0 auto 60px auto;
     padding-top: 40px;
 }
  
-/* The H2 heading for each section */
+
 .section-heading {
     color: rgb(95, 80, 29);
     font-size: 28px;
@@ -123,7 +123,7 @@ body {
     margin-bottom: 6px;
 }
  
-/* The short description line under each heading */
+
 .section-desc {
     color: #777;
     font-size: 15px;
@@ -132,14 +132,14 @@ body {
     padding-left: 21px;
 }
  
-/* THE GRID — videos sit side by side, wrap on small screens */
+
 .video-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
 }
  
-/* EACH VIDEO CARD */
+
 .video-card {
     background-color: white;
     border-radius: 16px;
@@ -177,7 +177,6 @@ body {
     line-height: 1.4;
 }
 
-/*FOOTER*/
 
 .footy {
     background-color: rgb(85, 84, 84);

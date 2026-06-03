@@ -13,7 +13,6 @@ body {
     flex-direction: column;
 }
 
-/* NAVBAR */
 
 .navbar {
     background: rgba(231, 180, 84, 0.2);
@@ -73,7 +72,6 @@ body {
     border: 2px solid rgb(250, 156, 128);
 }
 
-/* PAGE HEADER */
 
 .page-header {
     padding: 60px 40px;
@@ -93,7 +91,6 @@ body {
     color: #aaa;
 }
 
-/* LEGAL CONTENT */
 
 .legal-content {
     max-width: 800px;
@@ -102,7 +99,6 @@ body {
     flex: 1;
 }
 
-/* EACH SECTION */
 
 .legal-section {
     margin-bottom: 40px;
@@ -134,7 +130,6 @@ body {
     color: #555;
 }
 
-/* FOOTER */
 
 .footy {
     background-color: rgb(85, 84, 84);

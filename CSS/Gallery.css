@@ -13,7 +13,6 @@ body {
     flex-direction: column;
 }
 
-/* NAVBAR */
 
 .navbar {
     background: rgba(231, 180, 84, 0.2);
@@ -81,11 +80,10 @@ body {
     border-radius: 40px;
     color: white;
     font-size: 15px;
-    background-color: rgb(170, 98, 56);
-    border: 2px solid rgb(250, 156, 128);
+    background-color: rgb(247, 177, 136);
+    border: 2px solid rgb(247, 100, 55);
 }
 
-/* PAGE HEADER */
 
 .page-header {
 
@@ -107,7 +105,6 @@ body {
     color: #777;
 }
 
-/* GALLERY SECTIONS */
 
 .gallery-section {
     max-width: 1200px;
@@ -122,10 +119,8 @@ body {
     color: rgb(95, 80, 29);
     margin-bottom: 20px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #e8d5b0;
 }
 
-/* IMAGE GRID */
 
 .gallery-grid {
     display: flex;
@@ -133,7 +128,6 @@ body {
     gap: 20px;
 }
 
-/* EACH CARD */
 
 .gallery-card {
     width: 260px;
@@ -167,7 +161,6 @@ body {
     color: #888;
 }
 
-/* FOOTER */
 
 .footy {
     background-color: rgb(85, 84, 84);
